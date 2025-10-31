@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import DetailPage from './pages/DetailPage';
+
+// Konfigurasi animasi transisi halaman
+const pageTransition = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
+  transition: { duration: 0.3 }
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const location = useLocation();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="text-3xl font-bold underline text-red-700">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen bg-gray-900 text-white">
+      <Navbar />
+      <main className="container mx-auto px-4 py-8">
+        {/* AnimatePresence digunakan untuk animasi 'exit' */}
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route 
+              path="/" 
+              element={
+                <motion.div {...pageTransition}>
+                  <HomePage />
+                </motion.div>
+              } 
+            />
+            <Route 
+              path="/project/:id" 
+              element={
+                <motion.div {...pageTransition}>
+                  <DetailPage />
+                </motion.div>
+              } 
+            />
+          </Routes>
+        </AnimatePresence>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
