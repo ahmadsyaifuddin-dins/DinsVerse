@@ -10,7 +10,7 @@ const Navbar = () => {
         </Link>
         {/* Tambahkan link lain jika perlu */}
         <div className="space-x-4">
-          <a href="https://github.com/d-d-d-d-d" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+          <a href="https://github.com/ahmadsyaifuddin-dins" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
             GitHub
           </a>
         </div>
