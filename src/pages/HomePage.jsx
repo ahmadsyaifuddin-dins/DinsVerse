@@ -2,6 +2,7 @@ import React from 'react';
 import { useProjects } from '../context/ProjectContext';
 import ProjectCard from '../components/ProjectCard';
 import ProjectCardSkeleton from '../components/ProjectCardSkeleton';
+import ProjectFilters from '../components/ProjectFilters';
 
 const HomePage = () => {
   const { 
@@ -36,6 +37,8 @@ const HomePage = () => {
   return (
     <div>
       <h1 className="text-xl md:text-2xl font-bold mb-8 text-cyan-400">My Projects</h1>
+      
+      <ProjectFilters />
       
       {/* Grid untuk project cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

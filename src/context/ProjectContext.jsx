@@ -9,16 +9,38 @@ export const ProjectProvider = ({ children }) => {
   const [projects, setProjects] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const [loading, setLoading] = useState(true); // Untuk loading awal
-  const [loadingMore, setLoadingMore] = useState(false); // Untuk loading "Load More"
+  const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState(null);
 
-  // Fungsi untuk fetch data awal (halaman 1)
-  const fetchInitialProjects = async () => {
+  // 1. TAMBAHKAN FILTER STATE
+  const [filters, setFilters] = useState({
+    search: '',
+    type: '', // '' berarti 'Semua Tipe'
+    sortOrder: 'order' // 'order' (default), 'newest', 'oldest'
+  });
+
+  // 2. UBAH NAMA FUNGSI INI menjadi 'fetchProjectsByPage'
+  // Fungsi ini akan fetch halaman 1 (untuk reset) atau halaman berikutnya
+  const fetchProjectsByPage = async (pageNumber, isReset = false) => {
+    // Tentukan state loading mana yang akan diaktifkan
+    isReset ? setLoading(true) : setLoadingMore(true);
+    
     try {
-      setLoading(true);
-      const response = await getProjects(1); // Selalu fetch halaman 1
-      setProjects(response.data.projects || []);
+      // Gunakan 'filters' dari state saat fetch
+      const response = await getProjects(pageNumber, filters);
+      
+      if (isReset) {
+        // Jika ini reset (karena filter berubah), ganti semua data
+        setProjects(response.data.projects || []);
+      } else {
+        // Jika ini 'load more', tambahkan data ke yang lama
+        setProjects(prevProjects => [
+          ...prevProjects,
+          ...response.data.projects
+        ]);
+      }
+      
       setPage(response.data.currentPage);
       setTotalPages(response.data.totalPages);
     } catch (err) {
@@ -26,48 +48,36 @@ export const ProjectProvider = ({ children }) => {
       console.error("Error fetching projects:", err);
     } finally {
       setLoading(false);
+      setLoadingMore(false);
     }
   };
 
-  // Jalankan fetch awal saat komponen dimuat
+  // 3. BUAT useEffect BARU untuk me-reset data saat filter berubah
   useEffect(() => {
-    fetchInitialProjects();
-  }, []); // [] = jalankan sekali
+    // Setiap kali 'filters' berubah, panggil fetch halaman 1
+    fetchProjectsByPage(1, true); // true = ini adalah reset
+  }, [filters]); // <-- Bergantung pada 'filters'
 
-  // Fungsi untuk memuat halaman berikutnya
+  // 4. MODIFIKASI loadMoreProjects
   const loadMoreProjects = async () => {
-    // Jangan fetch jika sedang loading atau sudah di halaman terakhir
     if (loadingMore || page >= totalPages) return;
-
-    try {
-      setLoadingMore(true);
-      const nextPage = page + 1;
-      const response = await getProjects(nextPage);
-
-      // PENTING: Tambahkan data baru ke state yang lama (append)
-      setProjects(prevProjects => [
-        ...prevProjects,
-        ...response.data.projects
-      ]);
-      
-      setPage(response.data.currentPage); // Update halaman saat ini
-    } catch (err) {
-      setError(err);
-      console.error("Error loading more projects:", err);
-    } finally {
-      setLoadingMore(false);
-    }
+    
+    const nextPage = page + 1;
+    fetchProjectsByPage(nextPage, false); // false = bukan reset (append data)
   };
 
   return (
     <ProjectContext.Provider 
       value={{
         projects,
-        loading, // Loading awal
-        loadingMore, // Loading tambahan
+        loading,
+        loadingMore,
         error,
-        loadMoreProjects, // Fungsi untuk di-call tombol
-        hasMore: page < totalPages // Boolean untuk tahu kapan harus sembunyikan tombol
+        loadMoreProjects,
+        hasMore: page < totalPages,
+        // 5. EXPOSE filters dan setFilters ke komponen UI
+        filters,
+        setFilters 
       }}
     >
       {children}
@@ -75,7 +85,6 @@ export const ProjectProvider = ({ children }) => {
   );
 };
 
-// Custom hook tetap sama
 export const useProjects = () => {
   return useContext(ProjectContext);
 };

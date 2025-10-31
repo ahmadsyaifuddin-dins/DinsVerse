@@ -1,17 +1,29 @@
+// src/services/api.js
 import axios from 'axios';
 
-// Buat instance axios dengan baseURL dari API Anda
 const projectApi = axios.create({
   baseURL: 'https://dins-sphere-backend.vercel.app/api'
 });
 
-export const getProjects = (page = 1) => {
-  return projectApi.get('/projects', {
-    params: {
-      page: page
-    }
-  });
-};
+export const getProjects = (page = 1, filters = {}) => {
+  
+  // Siapkan parameter dasar
+  const params = { page };
 
-// Jika nanti Anda punya endpoint by ID, tambahkan di sini
-export const getProjectById = (id) => projectApi.get(`/projects/${id}`);
+  // Tambahkan filter HANYA JIKA ada nilainya
+  // Ini sesuai dengan logika backend Anda: if (type) query.type = type;
+  if (filters.search) {
+    params.search = filters.search;
+  }
+  if (filters.type) {
+    params.type = filters.type;
+  }
+  
+  // Backend Anda hanya bereaksi pada 'newest' atau 'oldest'
+  if (filters.sortOrder === 'newest' || filters.sortOrder === 'oldest') {
+    params.sortOrder = filters.sortOrder;
+  }
+  
+  // Kirim request dengan params yang sudah difilter
+  return projectApi.get('/projects', { params });
+};
