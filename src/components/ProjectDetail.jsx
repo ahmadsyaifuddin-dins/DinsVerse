@@ -72,7 +72,7 @@ const ProjectDetail = ({ project }) => {
 
       {/* Links (Source Code & Demo) - Ganti nama properti */}
       <div className="flex gap-4">
-        {project.linkSource && ( // GANTI DARI sourceCodeUrl
+        {project.linkSource && (
           <a
             href={project.linkSource}
             target="_blank"
@@ -83,7 +83,7 @@ const ProjectDetail = ({ project }) => {
             Source Code
           </a>
         )}
-        {project.linkDemo && ( // GANTI DARI demoUrl
+        {project.linkDemo && (
           <a
             href={project.linkDemo}
             target="_blank"
