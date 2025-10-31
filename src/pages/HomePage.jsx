@@ -58,7 +58,7 @@ const HomePage = () => {
           <button
             onClick={loadMoreProjects}
             disabled={loadingMore} 
-            className="bg-cyan-500 text-gray-900 font-semibold py-2 px-6 rounded-lg transition-colors hover:bg-cyan-400 disabled:bg-gray-600 disabled:cursor-not-allowed"
+            className="bg-cyan-500 cursor-pointer text-gray-900 font-semibold py-2 px-6 rounded-lg transition-colors hover:bg-cyan-400 disabled:bg-gray-600 disabled:cursor-not-allowed"
           >
             {loadingMore ? 'Loading...' : 'Load More'}
           </button>
