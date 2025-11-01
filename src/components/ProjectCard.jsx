@@ -9,7 +9,7 @@ import { FiGlobe, FiSmartphone, FiBox, FiPlay } from 'react-icons/fi'; // Icon u
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.95 },
   visible: { opacity: 1, scale: 1 },
-  hover: { scale: 1.05, transition: { duration: 0.2 } },
+  hover: { scale: 1.01, transition: { duration: 0.1 } },
   tap: { scale: 0.98 }
 };
 
