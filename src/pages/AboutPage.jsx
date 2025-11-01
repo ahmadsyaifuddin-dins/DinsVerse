@@ -46,7 +46,7 @@ const AboutPage = () => {
             
             <p className="text-lg text-gray-300 leading-relaxed">
             Halo! Saya Ahmad Syaifuddin, seorang pengembang full-stack yang menikmati proses membangun sesuatu dari nol — mulai dari ide sederhana sampai menjadi aplikasi yang benar-benar hidup dan bisa digunakan banyak orang. 
-            DinsVerse ini adalah tempat di mana saya mengarsipkan perjalanan dan karya yang telah saya bangun sejauh ini.
+            <code>DinsVerse</code> ini adalah tempat di mana saya mengarsipkan perjalanan dan karya yang telah saya bangun sejauh ini.
             </p>
 
             <p className="text-lg text-gray-300 leading-relaxed mt-4">
