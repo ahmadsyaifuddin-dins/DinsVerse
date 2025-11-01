@@ -24,6 +24,7 @@ const ProjectDetail = ({ project }) => {
     Easy: 'text-green-400 border-green-400',
     Medium: 'text-yellow-400 border-yellow-400',
     Hard: 'text-red-400 border-red-400',
+    Expert: 'text-purple-400 border-purple-400',
     default: 'text-gray-400 border-gray-400'
   };
   const difficultyClass = difficultyColors[project.difficulty] || difficultyColors.default;
@@ -33,7 +34,7 @@ const ProjectDetail = ({ project }) => {
       {/* Tombol Back */}
       <Link 
         to="/" 
-        className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 mb-6 group"
+        className="inline-flex items-center gap-2 text-cyan-400 text hover:text-cyan-300 mb-6 group"
       >
         <FiArrowLeft className="transition-transform group-hover:-translate-x-1" />
         Back to Projects
