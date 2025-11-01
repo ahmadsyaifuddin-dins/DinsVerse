@@ -17,7 +17,12 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen text-gray-200">
+      <div className="stars-container">
+        <div className="stars"></div>
+        <div className="stars2"></div>
+        <div className="stars3"></div>
+      </div>
       <Navbar />
       <main className="container mx-auto px-4 py-8">
         {/* AnimatePresence digunakan untuk animasi 'exit' */}

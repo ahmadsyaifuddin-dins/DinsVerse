@@ -4,7 +4,7 @@ import { FiGithub } from 'react-icons/fi';
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-950/50 backdrop-blur-md sticky top-0 z-10">
+    <nav className="bg-black/10 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-900">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="text-xl md:text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
           <span className="brightness-150">DinsVerse</span> Showcase

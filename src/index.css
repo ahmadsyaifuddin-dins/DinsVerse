@@ -1,2 +1,88 @@
 /* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+
+/* Tambahkan SEMUA KODE DI BAWAH INI 
+  (Biarkan @import "tailwindcss"; di baris paling atas)
+*/
+
+body {
+  /* Gradien "Deep Space" */
+  font-family: 'Exo 2', sans-serif;
+  background-color: #000;
+  background-image: linear-gradient(
+      145deg,
+      hsl(265deg 39% 10%) 0%,
+      hsl(246deg 45% 9%) 41%,
+      hsl(233deg 44% 7%) 71%,
+      hsl(222deg 42% 6%) 100%
+    );
+  background-attachment: fixed;
+  color: #e5e7eb; /* Default text color (light gray) */
+  overflow-x: hidden; /* Mencegah horizontal scroll dari bintang */
+}
+
+/* Container untuk 3 lapisan bintang
+  Kita akan tambahkan ini di App.jsx
+*/
+.stars-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -10;
+  overflow: hidden;
+}
+
+/* Fungsi untuk membuat bintang (SASS/CSS function) */
+/* Kita akan buat manual di sini */
+.stars, .stars2, .stars3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Lapisan 1: Bintang kecil, lambat */
+.stars {
+  background-image: radial-gradient(1px 1px at 25px 5px, white, transparent),
+                    radial-gradient(1px 1px at 50px 25px, white, transparent),
+                    radial-gradient(1px 1px at 75px 80px, white, transparent),
+                    radial-gradient(1px 1px at 100px 40px, white, transparent),
+                    radial-gradient(1px 1px at 150px 90px, white, transparent);
+  background-size: 300px 300px;
+  animation: animate-stars 100s linear infinite;
+}
+
+/* Lapisan 2: Bintang medium, sedang */
+.stars2 {
+  background-image: radial-gradient(1.5px 1.5px at 10px 15px, white, transparent),
+                    radial-gradient(1.5px 1.5px at 80px 35px, white, transparent),
+                    radial-gradient(1.5px 1.5px at 120px 70px, white, transparent),
+                    radial-gradient(1.5px 1.5px at 200px 110px, white, transparent);
+  background-size: 200px 200px;
+  animation: animate-stars 70s linear infinite;
+}
+
+/* Lapisan 3: Bintang besar, cepat (efek parallax) */
+.stars3 {
+  background-image: radial-gradient(2px 2px at 30px 30px, white, transparent),
+                    radial-gradient(2px 2px at 90px 60px, white, transparent),
+                    radial-gradient(2.5px 2.5px at 150px 100px, white, transparent);
+  background-size: 150px 150px;
+  animation: animate-stars 50s linear infinite;
+}
+
+@keyframes animate-stars {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-600px);
+  }
+}

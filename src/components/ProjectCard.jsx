@@ -38,7 +38,9 @@ const ProjectCard = ({ project }) => {
     >
       <Link 
         to={`/project/${project._id}`} 
-        className="block bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 h-full"
+        className="block bg-slate-800/70 backdrop-blur-md rounded-lg overflow-hidden shadow-lg 
+        border border-gray-700/50 transition-all duration-300 h-full
+        hover:border-cyan-400/70 hover:shadow-cyan-500/20"
       >
         {/* Thumbnail */}
         <img 
@@ -48,7 +50,6 @@ const ProjectCard = ({ project }) => {
         />
         
         <div className="p-5">
-          {/* --- Bagian Header Kartu (Icon, Judul, Tipe) --- */}
           <div className="flex items-start gap-4 mb-3">
             {/* 1. Icon Proyek */}
             {project.icon && (
@@ -78,7 +79,7 @@ const ProjectCard = ({ project }) => {
             {technologies.slice(0, 4).map((tech, index) => (
               <span 
                 key={index} 
-                className="bg-gray-700 text-cyan-300 text-xs font-medium px-2.5 py-0.5 rounded-full"
+                className="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-0.5 rounded-full border border-cyan-800/50"
               >
                 {tech}
               </span>

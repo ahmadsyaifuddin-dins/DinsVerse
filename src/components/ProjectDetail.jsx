@@ -149,13 +149,13 @@ const ProjectDetail = ({ project }) => {
 
 // Komponen helper kecil untuk Info Box agar lebih rapi
 const InfoBox = ({ icon, label, value }) => (
-  <div className="bg-gray-800 p-4 rounded-lg shadow">
-    <div className="flex items-center gap-3 mb-2">
-      {icon}
-      <h4 className="text-sm text-gray-400 uppercase font-semibold">{label}</h4>
-    </div>
-    <p className="text-lg text-white font-medium">{value}</p>
+  <div className="bg-slate-800/70 backdrop-blur-md p-4 rounded-lg shadow border border-gray-700/50">
+  <div className="flex items-center gap-3 mb-2">
+    {icon}
+    <h4 className="text-sm text-gray-400 uppercase font-semibold">{label}</h4>
   </div>
+  <p className="text-lg text-white font-medium">{value}</p>
+</div>
 );
 
 export default ProjectDetail;

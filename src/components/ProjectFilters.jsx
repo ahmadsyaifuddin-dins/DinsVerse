@@ -55,7 +55,9 @@ const ProjectFilters = () => {
           placeholder="Search project by title..."
           value={localSearch}
           onChange={(e) => setLocalSearch(e.target.value)}
-          className="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          className="w-full pl-10 pr-4 py-2 rounded-lg bg-slate-800/70 text-white 
+                     border border-gray-700/50 backdrop-blur-md 
+                     focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
         />
         <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
       </div>
@@ -65,7 +67,9 @@ const ProjectFilters = () => {
         name="type"
         value={filters.type}
         onChange={handleFilterChange}
-        className="shrink-0 bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+        className="shrink-0 bg-slate-800/70 text-white border border-gray-700/50 
+        rounded-lg px-4 py-2 backdrop-blur-md
+        focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
       >
         <option value="">All Types</option>
         <option value="Web Application">Web Application</option>
@@ -81,7 +85,9 @@ const ProjectFilters = () => {
         name="sortOrder"
         value={filters.sortOrder}
         onChange={handleFilterChange}
-        className="shrink-0 bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+        className="shrink-0 bg-slate-800/70 text-white border border-gray-700/50 
+        rounded-lg px-4 py-2 backdrop-blur-md
+        focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
       >
         <option value="order">Default Order</option>
         <option value="newest">Newest First</option>
