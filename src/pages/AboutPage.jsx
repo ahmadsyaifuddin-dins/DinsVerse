@@ -1,9 +1,10 @@
 // src/pages/AboutPage.jsx
 
 import React from 'react';
-// Impor beberapa icon untuk tech stack
-import { FaReact, FaLaravel, FaNodeJs, FaPython } from 'react-icons/fa';
+// 1. Impor icon baru
+import { FaReact, FaLaravel, FaNodeJs, FaPython, FaWhatsapp } from 'react-icons/fa';
 import { SiTailwindcss, SiVite, SiExpress, SiMongodb, SiFlutter, SiLivewire, SiMysql, SiAlpinedotjs } from 'react-icons/si';
+import { FiMail } from 'react-icons/fi';
 
 const profilePicUrl = "https://avatars.githubusercontent.com/u/77381720?v=4";
 
@@ -16,6 +17,15 @@ const SkillIcon = ({ icon, label }) => (
 );
 
 const AboutPage = () => {
+    
+  const userPhoneNumber = "6285849910396";
+  const whatsappText = "hallo kak mau joki aplikasi";
+  const encodedText = encodeURIComponent(whatsappText);
+  const whatsappLink = `https://wa.me/${userPhoneNumber}?text=${encodedText}`;
+  
+  const emailAddress = "dinsdev.10@gmail.com";
+  const emailLink = `mailto:${emailAddress}`;
+
   return (
     <div>
       <h1 className="text-4xl font-bold text-center mb-12 text-cyan-400">About Me</h1>
@@ -27,10 +37,9 @@ const AboutPage = () => {
                         bg-slate-800/70 backdrop-blur-md border border-gray-700/50 
                         rounded-lg p-8 md:p-12 shadow-lg">
           
-          {/* Foto Profil */}
           <div className="shrink-0">
             <img 
-              src={profilePicUrl} // Gunakan URL dari atas
+              src={profilePicUrl}
               alt="My Profile"
               className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover 
                          shadow-xl shadow-cyan-500/10 border-4 border-gray-700"
@@ -38,7 +47,6 @@ const AboutPage = () => {
             />
           </div>
           
-          {/* Teks Bio */}
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-3xl font-bold text-white mb-4">
               Ahmad Syaifuddin (Dins)
@@ -53,12 +61,11 @@ const AboutPage = () => {
             Di luar layar kode, saya senang bereksperimen dengan teknologi baru, menyusun konsep UI, atau sekadar ngulik hal-hal kecil yang bisa bikin aplikasi terasa lebih hidup. 
             Intinya, saya suka belajar, bikin sesuatu yang berguna, dan terus berkembang bareng teknologi.
             </p>
-
           </div>
         </div>
 
         {/* Bagian Tech Stack */}
-        <div>
+        <div className="mb-16">
           <h2 className="text-3xl font-bold text-white text-center mb-8">My Core Tech Stack</h2>
           
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -74,6 +81,42 @@ const AboutPage = () => {
             <SkillIcon icon={<SiVite size={40} className="text-yellow-500" />} label="Vite" />
             <SkillIcon icon={<SiExpress size={40} className="text-gray-400" />} label="Express" />
             <SkillIcon icon={<SiMongodb size={40} className="text-green-600" />} label="MongoDB" />
+          </div>
+        </div>
+        
+        <div>
+          <h2 className="text-3xl font-bold text-white text-center mb-8">Get In Touch</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            {/* Tombol WhatsApp */}
+            <a 
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 p-6 bg-slate-800/70 backdrop-blur-md border border-gray-700/50 rounded-lg shadow-lg hover:border-green-500/70 transition-colors duration-300"
+            >
+              <FaWhatsapp size={40} className="text-green-500 shrink-0" />
+              <div>
+                <h3 className="text-xl font-semibold text-white">WhatsApp</h3>
+                <p className="text-gray-400">Click to start a chat!</p>
+              </div>
+            </a>
+
+            {/* Tombol Email */}
+            <a 
+              href={emailLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 p-6 bg-slate-800/70 backdrop-blur-md border border-gray-700/50 rounded-lg shadow-lg hover:border-cyan-400/70 transition-colors duration-300"
+            >
+              <FiMail size={40} className="text-red-500 shrink-0" />
+              <div>
+                <h3 className="text-xl font-semibold text-white">Email</h3>
+                <p className="text-gray-400">{emailAddress}</p>
+              </div>
+            </a>
+            
           </div>
         </div>
         
