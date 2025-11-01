@@ -27,4 +27,4 @@ const DetailPage = () => {
   return <ProjectDetail project={project} />;
 };
 
-export default DetailPage;e
+export default DetailPage;
