@@ -29,7 +29,7 @@ const TestimonialCard = ({ testimonial }) => {
             setTypedText("");
             i = 0;
             startTyping();
-          }, 3000);
+          }, 5000);
         }
       }, typingSpeed);
     };
