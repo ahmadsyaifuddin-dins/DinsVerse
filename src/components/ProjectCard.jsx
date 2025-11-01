@@ -38,7 +38,7 @@ const ProjectCard = ({ project }) => {
     >
       <Link 
         to={`/project/${project._id}`} 
-        className="block bg-slate-800/70 backdrop-blur-md rounded-lg overflow-hidden shadow-lg 
+        className="block bg-slate-800/70 rounded-lg overflow-hidden shadow-lg 
         border border-gray-700/50 transition-all duration-300 h-full
         hover:border-cyan-400/70 hover:shadow-cyan-500/20"
       >
