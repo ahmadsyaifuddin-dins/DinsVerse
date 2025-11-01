@@ -61,7 +61,7 @@ const ProjectCard = ({ project }) => {
             )}
             
             {/* 2. Judul dan Tipe */}
-            <div className="grow">
+            <div className="grow min-w-0">
               <h3 className="text-2xl font-semibold mb-1 truncate">{project.title}</h3>
               
               {/* Menampilkan Tipe Proyek */}
