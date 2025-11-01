@@ -1,30 +1,24 @@
-// src/components/ProjectCard.jsx
+// src/components/ProjectCard.jsx (OPTIMIZED VERSION)
 
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiGlobe, FiSmartphone, FiBox, FiPlay } from 'react-icons/fi'; // Icon untuk tipe
+import { FiGlobe, FiSmartphone, FiBox, FiPlay } from 'react-icons/fi';
 
-// Variasi animasi
+//  Animasi yang lebih ringan (hanya opacity, no scale)
 const cardVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: { opacity: 1, scale: 1 },
-  hover: { scale: 1.01, transition: { duration: 0.1 } },
-  tap: { scale: 0.98 }
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: { duration: 0.3 } // Lebih cepat
+  }
 };
 
-// Helper kecil untuk memilih icon berdasarkan tipe
+// Helper untuk icon (tidak berubah)
 const getTypeIcon = (type) => {
-  if (type === 'Web Application') {
-    return <FiGlobe className="text-gray-400" />;
-  }
-  if (type === 'Mobile App') {
-    return <FiSmartphone className="text-gray-400" />;
-  }
-  if (type === 'Game') {
-    return <FiPlay className="text-gray-400" />;
-  }
-  // Default icon
+  if (type === 'Web Application') return <FiGlobe className="text-gray-400" />;
+  if (type === 'Mobile App') return <FiSmartphone className="text-gray-400" />;
+  if (type === 'Game') return <FiPlay className="text-gray-400" />;
   return <FiBox className="text-gray-400" />;
 };
 
@@ -36,12 +30,14 @@ const ProjectCard = ({ project }) => {
       variants={cardVariants}
       initial="hidden"
       animate="visible"
-      whileHover="hover"
-      whileTap="tap"
+      //  Hapus whileHover dan whileTap untuk performa
     >
       <Link 
         to={`/project/${project._id}`} 
-        className="block bg-slate-800/80 rounded-lg overflow-hidden shadow-lg transition-all duration-300 h-full hover:shadow-cyan-500/20"
+        //  Gunakan transform daripada scale, hapus shadow hover
+        className="block bg-slate-800/80 rounded-lg overflow-hidden shadow-lg 
+                   transition-transform duration-200 ease-out h-full 
+                   hover:translate-y-[-2px] active:translate-y-0"
       >
         {/* Thumbnail */}
         <img 
@@ -49,24 +45,27 @@ const ProjectCard = ({ project }) => {
           alt={`${project.title} thumbnail`} 
           className="w-full h-48 object-cover" 
           loading="lazy"
+          //  Tambahkan decoding async untuk performa
+          decoding="async"
         />
         
         <div className="p-5">
           <div className="flex items-start gap-4 mb-3">
-            {/* 1. Icon Proyek */}
+            {/* Icon Proyek */}
             {project.icon && (
               <img 
                 src={project.icon} 
                 alt={`${project.title} icon`} 
                 className="w-12 h-12 rounded-lg object-contain shrink-0 mt-1"
+                loading="lazy"
+                decoding="async"
               />
             )}
             
-            {/* 2. Judul dan Tipe */}
+            {/* Judul dan Tipe */}
             <div className="grow min-w-0">
               <h3 className="text-2xl font-semibold mb-1 truncate">{project.title}</h3>
               
-              {/* Menampilkan Tipe Proyek */}
               {project.type && (
                 <div className="flex items-center gap-2 text-sm text-gray-400">
                   {getTypeIcon(project.type)}
@@ -76,7 +75,7 @@ const ProjectCard = ({ project }) => {
             </div>
           </div>
 
-          {/* --- Bagian Tech Stack --- */}
+          {/* Tech Stack */}
           <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-700">
             {technologies.slice(0, 4).map((tech, index) => (
               <span 
