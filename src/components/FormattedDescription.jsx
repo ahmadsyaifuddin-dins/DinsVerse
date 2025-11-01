@@ -7,7 +7,6 @@ const FormattedDescription = ({ description }) => {
   if (!description) return null;
 
   // 1. Pisahkan deskripsi berdasarkan baris baru
-  //    dan hapus baris kosong jika ada
   const lines = description.split('\n').filter(line => line.trim() !== '');
 
   if (lines.length === 0) return null;
