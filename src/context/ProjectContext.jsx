@@ -13,14 +13,12 @@ export const ProjectProvider = ({ children }) => {
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState(null);
 
-  // 1. TAMBAHKAN FILTER STATE
   const [filters, setFilters] = useState({
     search: '',
     type: '', // '' berarti 'Semua Tipe'
     sortOrder: 'order' // 'order' (default), 'newest', 'oldest'
   });
 
-  // 2. UBAH NAMA FUNGSI INI menjadi 'fetchProjectsByPage'
   // Fungsi ini akan fetch halaman 1 (untuk reset) atau halaman berikutnya
   const fetchProjectsByPage = async (pageNumber, isReset = false) => {
     // Tentukan state loading mana yang akan diaktifkan
@@ -52,7 +50,6 @@ export const ProjectProvider = ({ children }) => {
     }
   };
 
-  // 3. BUAT useEffect BARU untuk me-reset data saat filter berubah
   useEffect(() => {
     // Setiap kali 'filters' berubah, panggil fetch halaman 1
     fetchProjectsByPage(1, true); // true = ini adalah reset
