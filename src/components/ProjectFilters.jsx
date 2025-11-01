@@ -69,6 +69,7 @@ const ProjectFilters = () => {
       >
         <option value="">All Types</option>
         <option value="Web Application">Web Application</option>
+        <option value="Website">Website</option>
         <option value="Mobile Application">Mobile Application</option>
         <option value="Game">Game</option>
         {/* Tambahkan tipe lain jika perlu */}
