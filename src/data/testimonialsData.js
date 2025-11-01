@@ -1,7 +1,4 @@
 // src/data/testimonialsData.js
-
-// src/data/testimonialsData.js
-
 export const testimonials = [
   {
     id: 1,
