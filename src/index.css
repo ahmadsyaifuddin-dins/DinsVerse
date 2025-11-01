@@ -35,13 +35,15 @@ body {
 }
 
 /* Fungsi untuk membuat bintang (SASS/CSS function) */
-/* Kita akan buat manual di sini */
 .stars, .stars2, .stars3 {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  
+  /* Optimalisasi GPU */
+  will-change: transform;
 }
 
 /* Lapisan 1: Bintang kecil, lambat */
