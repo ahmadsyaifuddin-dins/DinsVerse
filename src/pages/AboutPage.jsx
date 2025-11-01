@@ -45,11 +45,15 @@ const AboutPage = () => {
             </h2>
             
             <p className="text-lg text-gray-300 leading-relaxed">
-            Halo! Saya seorang pengembang full-stack yang bersemangat dalam membangun aplikasi web dan mobile modern. Saya senang mengubah ide menjadi kenyataan, mulai dari konsep awal hingga produk yang sepenuhnya berfungsi. Portofolio ini merupakan kumpulan perjalanan saya dan proyek-proyek yang telah saya bangun sepanjang perjalanan.
+            Halo! Saya Ahmad Syaifuddin, seorang pengembang full-stack yang menikmati proses membangun sesuatu dari nol — mulai dari ide sederhana sampai menjadi aplikasi yang benar-benar hidup dan bisa digunakan banyak orang. 
+            DinsVerse ini adalah tempat di mana saya mengarsipkan perjalanan dan karya yang telah saya bangun sejauh ini.
             </p>
+
             <p className="text-lg text-gray-300 leading-relaxed mt-4">
-              Ketika tidak sedang mengoding, Anda bisa menemukan saya sedang menjelajahi teknologi baru atau berkontribusi pada proyek open-source.
+            Di luar layar kode, saya senang bereksperimen dengan teknologi baru, menyusun konsep UI, atau sekadar ngulik hal-hal kecil yang bisa bikin aplikasi terasa lebih hidup. 
+            Intinya, saya suka belajar, bikin sesuatu yang berguna, dan terus berkembang bareng teknologi.
             </p>
+
           </div>
         </div>
 
