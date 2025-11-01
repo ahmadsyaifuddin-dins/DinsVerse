@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import DetailPage from './pages/DetailPage';
+import Footer from './components/Footer';
 
 // Konfigurasi animasi transisi halaman
 const pageTransition = {
@@ -47,6 +48,8 @@ function App() {
           </Routes>
         </AnimatePresence>
       </main>
+
+      <Footer />
     </div>
   );
 }
