@@ -24,7 +24,7 @@ const TestimonialCard = ({ testimonial }) => {
           clearInterval(interval);
           setIsTyping(false);
 
-          // jeda 3 detik sebelum mengetik ulang
+          // jeda 5 detik sebelum mengetik ulang
           resetTimeout = setTimeout(() => {
             setTypedText("");
             i = 0;
