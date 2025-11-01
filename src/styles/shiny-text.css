@@ -1,0 +1,219 @@
+/* src/styles/shiny-text.css */
+
+/* Efek Lightning Shine - Kilat Mengkilap */
+.shiny-text {
+    background: linear-gradient(
+      110deg,
+      #0891b2 0%,
+      #06b6d4 10%,
+      #22d3ee 20%,
+      #67e8f9 30%,
+      #ffffff 32%,
+      #ffffff 33%,
+      #ffffff 34%,
+      #67e8f9 36%,
+      #22d3ee 40%,
+      #06b6d4 50%,
+      #0891b2 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: lightning-shine 2s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))
+            drop-shadow(0 0 20px rgba(34, 211, 238, 0.6))
+            drop-shadow(0 0 30px rgba(6, 182, 212, 0.4));
+    position: relative;
+  }
+  
+  @keyframes lightning-shine {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+  
+  /* Variasi dengan flash lebih cepat seperti petir */
+  .shiny-text-flash {
+    background: linear-gradient(
+      110deg,
+      #0c4a6e 0%,
+      #075985 8%,
+      #0369a1 15%,
+      #0891b2 20%,
+      #06b6d4 25%,
+      #22d3ee 28%,
+      #a5f3fc 30%,
+      #ffffff 31%,
+      #ffffff 31.5%,
+      #ffffff 32%,
+      #a5f3fc 33%,
+      #22d3ee 35%,
+      #06b6d4 40%,
+      #0891b2 50%,
+      #0369a1 60%,
+      #075985 70%,
+      #0c4a6e 100%
+    );
+    background-size: 300% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: flash-lightning 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1))
+            drop-shadow(0 0 15px rgba(34, 211, 238, 0.8))
+            drop-shadow(0 0 25px rgba(6, 182, 212, 0.5))
+            drop-shadow(0 0 35px rgba(8, 145, 178, 0.3));
+  }
+  
+  @keyframes flash-lightning {
+    0% {
+      background-position: -300% center;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1))
+              drop-shadow(0 0 15px rgba(34, 211, 238, 0.8))
+              drop-shadow(0 0 25px rgba(6, 182, 212, 0.5));
+    }
+    30% {
+      background-position: 0% center;
+      filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1))
+              drop-shadow(0 0 25px rgba(34, 211, 238, 1))
+              drop-shadow(0 0 40px rgba(6, 182, 212, 0.8));
+    }
+    31% {
+      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1))
+              drop-shadow(0 0 35px rgba(34, 211, 238, 1))
+              drop-shadow(0 0 50px rgba(6, 182, 212, 1));
+    }
+    32% {
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))
+              drop-shadow(0 0 15px rgba(34, 211, 238, 0.6));
+    }
+    100% {
+      background-position: 300% center;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))
+              drop-shadow(0 0 15px rgba(34, 211, 238, 0.6));
+    }
+  }
+  
+  /* Efek Electric Bolt - Lebih intens seperti listrik */
+  .shiny-text-electric {
+    background: linear-gradient(
+      120deg,
+      #164e63 0%,
+      #155e75 5%,
+      #0e7490 10%,
+      #0891b2 15%,
+      #06b6d4 20%,
+      #22d3ee 25%,
+      #67e8f9 28%,
+      #e0f2fe 30%,
+      #ffffff 31%,
+      #ffffff 32%,
+      #e0f2fe 33%,
+      #67e8f9 35%,
+      #22d3ee 38%,
+      #06b6d4 42%,
+      #0891b2 48%,
+      #0e7490 55%,
+      #155e75 65%,
+      #164e63 100%
+    );
+    background-size: 250% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: electric-bolt 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9))
+            drop-shadow(0 0 20px rgba(103, 232, 249, 0.7))
+            drop-shadow(0 0 30px rgba(34, 211, 238, 0.5))
+            drop-shadow(0 0 40px rgba(6, 182, 212, 0.3));
+  }
+  
+  @keyframes electric-bolt {
+    0%, 100% {
+      background-position: 0% center;
+    }
+    15% {
+      background-position: 50% center;
+    }
+    16% {
+      background-position: 52% center;
+      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1))
+              drop-shadow(0 0 35px rgba(103, 232, 249, 1))
+              drop-shadow(0 0 50px rgba(34, 211, 238, 0.8));
+    }
+    17% {
+      background-position: 50% center;
+    }
+    50% {
+      background-position: 100% center;
+    }
+    65% {
+      background-position: 150% center;
+    }
+    66% {
+      background-position: 152% center;
+      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1))
+              drop-shadow(0 0 35px rgba(103, 232, 249, 1))
+              drop-shadow(0 0 50px rgba(34, 211, 238, 0.8));
+    }
+    67% {
+      background-position: 150% center;
+    }
+  }
+  
+  /* Efek Spark - Kilatan cepat berulang */
+  .shiny-text-spark {
+    background: linear-gradient(
+      90deg,
+      #0c4a6e 0%,
+      #164e63 10%,
+      #155e75 20%,
+      #0891b2 28%,
+      #22d3ee 30%,
+      #ffffff 31%,
+      #22d3ee 32%,
+      #0891b2 34%,
+      #155e75 45%,
+      #164e63 60%,
+      #0c4a6e 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: spark-flash 1.2s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))
+            drop-shadow(0 0 18px rgba(34, 211, 238, 0.6));
+  }
+  
+  @keyframes spark-flash {
+    0%, 100% {
+      background-position: 0% center;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))
+              drop-shadow(0 0 15px rgba(34, 211, 238, 0.4));
+    }
+    15% {
+      background-position: 50% center;
+      filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1))
+              drop-shadow(0 0 30px rgba(34, 211, 238, 0.9))
+              drop-shadow(0 0 45px rgba(6, 182, 212, 0.6));
+    }
+    16% {
+      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1))
+              drop-shadow(0 0 40px rgba(34, 211, 238, 1))
+              drop-shadow(0 0 60px rgba(6, 182, 212, 0.8));
+    }
+    17% {
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))
+              drop-shadow(0 0 15px rgba(34, 211, 238, 0.4));
+    }
+    50% {
+      background-position: 200% center;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))
+              drop-shadow(0 0 15px rgba(34, 211, 238, 0.4));
+    }
+  }
