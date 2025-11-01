@@ -20,6 +20,7 @@ const HomePage = () => {
       <div>
         {/* Kita tetap tampilkan judulnya agar layout tidak "melompat" */}
         <h1 className="text-xl md:text-2xl font-bold mb-8 text-cyan-400">My Projects</h1>
+        <ProjectFilters />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Render 6 kerangka (atau 9, sesuai selera) */}
           {[...Array(6)].map((_, index) => (
