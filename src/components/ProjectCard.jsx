@@ -47,6 +47,7 @@ const ProjectCard = ({ project }) => {
           src={project.thumbnail || 'https://placehold.co/600x400?text=No+Image&font=roboto'}
           alt={`${project.title} thumbnail`} 
           className="w-full h-48 object-cover" 
+          loading="lazy"
         />
         
         <div className="p-5">
