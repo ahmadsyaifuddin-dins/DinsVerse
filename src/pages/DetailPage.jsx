@@ -1,16 +1,20 @@
+// src/pages/DetailPage.jsx
+
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useProjects } from '../context/ProjectContext';
 import ProjectDetail from '../components/ProjectDetail';
+import DetailSkeleton from '../components/DetailSkeleton';
 
 const DetailPage = () => {
-  const { id } = useParams(); // Ambil 'id' dari URL
-  const { projects, loading } = useProjects(); // Ambil SEMUA project dari context
+  const { id } = useParams();
+  const { projects, loading } = useProjects();
 
-  // Cari proyek yang spesifik berdasarkan 'id'
   const project = projects.find(p => p._id === id);
 
-  if (loading) return <div className="text-center text-xl">Loading project details...</div>;
+  if (loading && projects.length === 0) {
+    return <DetailSkeleton />;
+  }
 
   if (!project) {
     return (
@@ -23,7 +27,6 @@ const DetailPage = () => {
     );
   }
 
-  // Kirim data proyek yang ditemukan ke komponen ProjectDetail
   return <ProjectDetail project={project} />;
 };
 
