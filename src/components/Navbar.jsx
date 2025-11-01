@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="bg-gray-950/50 backdrop-blur-md sticky top-0 z-10">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="text-xl md:text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
-          DinsVerse Showcase
+          <span className="brightness-110">DinsVerse</span> Showcase
         </Link>
         {/* Tambahkan link lain jika perlu */}
         <div className="space-x-4">
