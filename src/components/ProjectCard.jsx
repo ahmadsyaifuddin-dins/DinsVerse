@@ -55,12 +55,12 @@ const ProjectCard = ({ project }) => {
               <img 
                 src={project.icon} 
                 alt={`${project.title} icon`} 
-                className="w-12 h-12 rounded-lg object-contain flex-shrink-0 mt-1"
+                className="w-12 h-12 rounded-lg object-contain shrink-0 mt-1"
               />
             )}
             
             {/* 2. Judul dan Tipe */}
-            <div className="flex-grow">
+            <div className="grow">
               <h3 className="text-2xl font-semibold mb-1 truncate">{project.title}</h3>
               
               {/* Menampilkan Tipe Proyek */}
