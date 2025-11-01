@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiGithub, FiExternalLink, FiArrowLeft, FiCalendar, FiCheckCircle, FiActivity } from 'react-icons/fi';
 import { FaBullseye } from 'react-icons/fa'; // Icon untuk progress
+import FormattedDescription from './FormattedDescription';
 
 // Fungsi helper untuk format tanggal
 const formatDate = (dateString) => {
@@ -71,9 +72,7 @@ const ProjectDetail = ({ project }) => {
 
       {/* --- Deskripsi --- */}
       {project.description && (
-        <div className="prose prose-invert prose-lg max-w-none mb-8">
-          <p>{project.description}</p>
-        </div>
+        <FormattedDescription description={project.description} />
       )}
 
       {/* --- Info Box Grid --- */}
