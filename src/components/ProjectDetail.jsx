@@ -47,7 +47,7 @@ const ProjectDetail = ({ project }) => {
 
       {/* Gambar Utama */}
       <img 
-        src={project.thumbnail || 'https://via.placeholder.com/800x450?text=Project+Image'} 
+        src={project.thumbnail || 'https://placehold.co/800x450?text=Project+Image'} 
         alt={`${project.title} main`}
         className="w-full rounded-lg shadow-lg mb-8"
       />
