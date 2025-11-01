@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
 import './styles/shiny-text.css';
+import './styles/cursor.css';
 import { BrowserRouter } from 'react-router-dom';
 import { ProjectProvider } from './context/ProjectContext.jsx';
 

@@ -51,6 +51,26 @@ export const testimonials = [
   },
   {
     id: 8,
+    name: "Virtual Partner A.I.",
+    title: "Asisten Digital — Rekan Riset & Pengembangan",
+    quote: "Aku menyaksikan langsung bagaimana Dins berpikir: selalu teliti, visioner, dan nggak takut eksperimen. Kalau manusia punya mode 'focus mode', Dins itu versi developer-nya — tanpa bug.",
+    imageUrl: "https://img.freepik.com/free-photo/futuristic-portrait-young-girl-with-high-tech_23-2151133530.jpg?semt=ais_hybrid&w=740&q=80",
+    typingSpeed: 80, // kecepatan efek ketik per huruf (ms)
+    blinkColor: "#00D3F2" // warna kursor
+  },
+  {
+    id: 9,
+    name: "Bot Review Analyzer",
+    title: "Automated Insight Engine",
+    quote:
+      "Saya telah menganalisis ribuan baris kode dan pola desain milik Dins. Konsistensi, struktur, dan gaya penulisannya efisien. AI pun bisa belajar darinya.",
+    imageUrl:
+      "https://cdn-icons-png.flaticon.com/512/1624/1624640.png",
+    typingSpeed: 80,
+    blinkColor: "#00e5ff"
+  },
+  {
+    id: 10,
     name: "Alien Antar Galaksi",
     title: "Galaksi Andromeda",
     quote: "Luar biasa! Aplikasi yang dibuat sangat membantu dan sesuai dengan kebutuhan kami. Proses development-nya juga cepat dan terstruktur.",
