@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiGlobe, FiSmartphone, FiBox } from 'react-icons/fi'; // Icon untuk tipe
+import { FiGlobe, FiSmartphone, FiBox, FiPlay } from 'react-icons/fi'; // Icon untuk tipe
 
 // Variasi animasi
 const cardVariants = {
@@ -20,6 +20,9 @@ const getTypeIcon = (type) => {
   }
   if (type === 'Mobile App') {
     return <FiSmartphone className="text-gray-400" />;
+  }
+  if (type === 'Game') {
+    return <FiPlay className="text-gray-400" />;
   }
   // Default icon
   return <FiBox className="text-gray-400" />;
@@ -38,9 +41,7 @@ const ProjectCard = ({ project }) => {
     >
       <Link 
         to={`/project/${project._id}`} 
-        className="block bg-slate-800/70 rounded-lg overflow-hidden shadow-lg 
-        border border-gray-700/50 transition-all duration-300 h-full
-        hover:border-cyan-400/70 hover:shadow-cyan-500/20"
+        className="block bg-slate-800/80 rounded-lg overflow-hidden shadow-lg transition-all duration-300 h-full hover:shadow-cyan-500/20"
       >
         {/* Thumbnail */}
         <img 
