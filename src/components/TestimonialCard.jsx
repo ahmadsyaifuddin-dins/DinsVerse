@@ -24,12 +24,12 @@ const TestimonialCard = ({ testimonial }) => {
           clearInterval(interval);
           setIsTyping(false);
 
-          // jeda 5 detik sebelum mengetik ulang
+          // jeda 10 detik sebelum mengetik ulang
           resetTimeout = setTimeout(() => {
             setTypedText("");
             i = 0;
             startTyping();
-          }, 5000);
+          }, 10000);
         }
       }, typingSpeed);
     };
