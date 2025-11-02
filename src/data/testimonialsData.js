@@ -81,6 +81,7 @@ export const testimonials = [
     imageUrl: "https://cdn-icons-png.flaticon.com/512/947/947661.png",
     effectType: "alien",
     blinkColor: "#00e5ff",
+    resetDelay: 10000,
     // projectImageUrl: "https://placehold.co/400?text=Screenshot+Proyek+2"
   },
   // Tambahkan testimoni lainnya di sini
