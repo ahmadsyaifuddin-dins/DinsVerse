@@ -14,7 +14,7 @@ const TestimonialCard = ({ testimonial }) => {
     projectImageUrl,
     typingSpeed,
     blinkColor,
-    effectType, // 👈 jenis efek
+    effectType,
   } = testimonial;
 
   const [text, setText] = useState(
@@ -31,7 +31,7 @@ const TestimonialCard = ({ testimonial }) => {
     if (effectType !== "alien") return;
     let revealed = 0;
     let frame = 0;
-    const glitchSpeed = 25;
+    const glitchSpeed = 50;
     const smoothness = 3;
 
     const startTyping = () => {
@@ -55,7 +55,7 @@ const TestimonialCard = ({ testimonial }) => {
             frame = 0;
             setText("");
             startTyping();
-          }, 3000);
+          }, testimonial.resetDelay || 3000); // default 3 detik, bisa diset 10.000
         }
       }, glitchSpeed);
     };
@@ -84,7 +84,7 @@ const TestimonialCard = ({ testimonial }) => {
             i = 0;
             setText("");
             startTyping();
-          }, 3000);
+          }, testimonial.resetDelay || 3000); // default 3 detik, bisa diset 10.000
         }
       }, typingSpeed || 50);
     };

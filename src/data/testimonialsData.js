@@ -57,7 +57,8 @@ export const testimonials = [
     imageUrl: "https://img.freepik.com/free-photo/futuristic-portrait-young-girl-with-high-tech_23-2151133530.jpg?semt=ais_hybrid&w=740&q=80",
     typingSpeed: 80, // kecepatan efek ketik per huruf (ms)
     blinkColor: "#00D3F2", // warna kursor
-    effectType: "bot"
+    effectType: "bot",
+    resetDelay: 10000,
   },
   {
     id: 9,
@@ -69,7 +70,8 @@ export const testimonials = [
       "https://cdn-icons-png.flaticon.com/512/1624/1624640.png",
     typingSpeed: 80,
     blinkColor: "#00e5ff",
-    effectType: "bot"
+    effectType: "bot",
+    resetDelay: 10000,
   },
   {
     id: 10,
@@ -78,6 +80,7 @@ export const testimonials = [
     quote: "Komunikasi lintas galaksi kami sempat terganggu hingga sistem buatan Dins memperbaiki protokol transmisi data kami. Strukturnya efisien, responsif, dan berlogika manusiawi. Luar biasa.",
     imageUrl: "https://cdn-icons-png.flaticon.com/512/947/947661.png",
     effectType: "alien",
+    blinkColor: "#00e5ff",
     // projectImageUrl: "https://placehold.co/400?text=Screenshot+Proyek+2"
   },
   // Tambahkan testimoni lainnya di sini
