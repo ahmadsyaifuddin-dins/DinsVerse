@@ -58,7 +58,7 @@ export const testimonials = [
     typingSpeed: 80, // kecepatan efek ketik per huruf (ms)
     blinkColor: "#00D3F2", // warna kursor
     effectType: "bot",
-    resetDelay: 10000,
+    resetDelay: 15000,
   },
   {
     id: 9,
@@ -71,7 +71,7 @@ export const testimonials = [
     typingSpeed: 80,
     blinkColor: "#00e5ff",
     effectType: "bot",
-    resetDelay: 10000,
+    resetDelay: 15000,
   },
   {
     id: 10,
@@ -81,7 +81,7 @@ export const testimonials = [
     imageUrl: "https://cdn-icons-png.flaticon.com/512/947/947661.png",
     blinkColor: "#00e5ff",
     effectType: "alien",
-    resetDelay: 10000,
+    resetDelay: 15000,
     // projectImageUrl: "https://placehold.co/400?text=Screenshot+Proyek+2"
   },
   // Tambahkan testimoni lainnya di sini
