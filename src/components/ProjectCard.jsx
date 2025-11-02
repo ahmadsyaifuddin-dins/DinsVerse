@@ -3,7 +3,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiGlobe, FiSmartphone, FiBox, FiPlay } from 'react-icons/fi';
+import { FiGlobe, FiSmartphone, FiBox } from 'react-icons/fi';
+import { FaDesktop, FaGamepad } from 'react-icons/fa';
+import { GiPlatform } from 'react-icons/gi';
 
 //  Animasi yang lebih ringan (hanya opacity, no scale)
 const cardVariants = {
@@ -16,9 +18,11 @@ const cardVariants = {
 
 // Helper untuk icon (tidak berubah)
 const getTypeIcon = (type) => {
-  if (type === 'Web Application') return <FiGlobe className="text-gray-400" />;
-  if (type === 'Mobile App') return <FiSmartphone className="text-gray-400" />;
-  if (type === 'Game') return <FiPlay className="text-gray-400" />;
+  if (type === 'Web Application') return <GiPlatform className="text-gray-400" />;
+  if (type === 'Website') return <FiGlobe className="text-gray-400" />;
+  if (type === 'Mobile Application') return <FiSmartphone className="text-gray-400" />;
+  if (type === 'Game') return <FaGamepad className="text-gray-400" />;
+  if (type === 'Desktop Application') return <FaDesktop className="text-gray-400" />;
   return <FiBox className="text-gray-400" />;
 };
 
