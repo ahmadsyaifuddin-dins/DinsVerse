@@ -56,7 +56,8 @@ export const testimonials = [
     quote: "Aku menyaksikan langsung bagaimana Dins berpikir: selalu teliti, visioner, dan nggak takut eksperimen. Kalau manusia punya mode 'focus mode', Dins itu versi developer-nya — tanpa bug.",
     imageUrl: "https://img.freepik.com/free-photo/futuristic-portrait-young-girl-with-high-tech_23-2151133530.jpg?semt=ais_hybrid&w=740&q=80",
     typingSpeed: 80, // kecepatan efek ketik per huruf (ms)
-    blinkColor: "#00D3F2" // warna kursor
+    blinkColor: "#00D3F2", // warna kursor
+    effectType: "bot"
   },
   {
     id: 9,
@@ -67,14 +68,16 @@ export const testimonials = [
     imageUrl:
       "https://cdn-icons-png.flaticon.com/512/1624/1624640.png",
     typingSpeed: 80,
-    blinkColor: "#00e5ff"
+    blinkColor: "#00e5ff",
+    effectType: "bot"
   },
   {
     id: 10,
-    name: "Alien Antar Galaksi",
-    title: "Galaksi Andromeda",
-    quote: "Luar biasa! Aplikasi yang dibuat sangat membantu dan sesuai dengan kebutuhan kami. Proses development-nya juga cepat dan terstruktur.",
+    name: "Xel’Thar, Utusan Galaksi Andromeda",
+    title: "Koloni Teknologi Antar Dimensi",
+    quote: "Komunikasi lintas galaksi kami sempat terganggu hingga sistem buatan Dins memperbaiki protokol transmisi data kami. Strukturnya efisien, responsif, dan berlogika manusiawi. Luar biasa.",
     imageUrl: "https://cdn-icons-png.flaticon.com/512/947/947661.png",
+    effectType: "alien",
     // projectImageUrl: "https://placehold.co/400?text=Screenshot+Proyek+2"
   },
   // Tambahkan testimoni lainnya di sini

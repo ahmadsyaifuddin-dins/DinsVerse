@@ -1,67 +1,123 @@
 // src/components/TestimonialCard.jsx
-import React, { useEffect, useState } from 'react';
-import { FaQuoteLeft } from 'react-icons/fa';
+import React, { useEffect, useState, useRef } from "react";
+import { FaQuoteLeft } from "react-icons/fa";
+
+const GLITCH_CHARS =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*~";
 
 const TestimonialCard = ({ testimonial }) => {
-  const { id, name, title, quote, imageUrl, projectImageUrl, typingSpeed, blinkColor } = testimonial;
-  const [typedText, setTypedText] = useState(typingSpeed ? "" : quote);
+  const {
+    name,
+    title,
+    quote,
+    imageUrl,
+    projectImageUrl,
+    typingSpeed,
+    blinkColor,
+    effectType, // 👈 jenis efek
+  } = testimonial;
+
+  const [text, setText] = useState(
+    effectType === "bot" ? "" : effectType === "alien" ? "" : quote
+  );
   const [isTyping, setIsTyping] = useState(true);
+  const [showCursor, setShowCursor] = useState(true);
 
+  const intervalRef = useRef(null);
+  const resetTimeoutRef = useRef(null);
+
+  // ✨ Efek khusus Alien (huruf acak glitch)
   useEffect(() => {
-    if (!typingSpeed) return; // hanya aktif untuk AI / bot testimoni
-
-    let i = 0;
-    let interval;
-    let resetTimeout;
+    if (effectType !== "alien") return;
+    let revealed = 0;
+    let frame = 0;
+    const glitchSpeed = 25;
+    const smoothness = 3;
 
     const startTyping = () => {
       setIsTyping(true);
-      interval = setInterval(() => {
-        if (i < quote.length) {
-          setTypedText(quote.slice(0, i + 1));
-          i++;
-        } else {
-          clearInterval(interval);
-          setIsTyping(false);
+      intervalRef.current = setInterval(() => {
+        frame++;
+        const visiblePart = quote.slice(0, revealed);
+        const randomPart = Array.from(
+          { length: quote.length - revealed },
+          () => GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)]
+        ).join("");
+        setText(visiblePart + randomPart);
 
-          // jeda 10 detik sebelum mengetik ulang
-          resetTimeout = setTimeout(() => {
-            setTypedText("");
-            i = 0;
+        if (frame % smoothness === 0 && revealed < quote.length) revealed++;
+        if (revealed >= quote.length) {
+          clearInterval(intervalRef.current);
+          setText(quote);
+          setIsTyping(false);
+          resetTimeoutRef.current = setTimeout(() => {
+            revealed = 0;
+            frame = 0;
+            setText("");
             startTyping();
-          }, 10000);
+          }, 3000);
         }
-      }, typingSpeed);
+      }, glitchSpeed);
     };
 
     startTyping();
-
     return () => {
-      clearInterval(interval);
-      clearTimeout(resetTimeout);
+      clearInterval(intervalRef.current);
+      clearTimeout(resetTimeoutRef.current);
     };
-  }, [quote, typingSpeed]);
+  }, [quote, effectType]);
+
+  // 🤖 Efek bot (typing normal)
+  useEffect(() => {
+    if (effectType !== "bot") return;
+    let i = 0;
+    const startTyping = () => {
+      setIsTyping(true);
+      intervalRef.current = setInterval(() => {
+        if (i < quote.length) {
+          setText(quote.slice(0, i + 1));
+          i++;
+        } else {
+          clearInterval(intervalRef.current);
+          setIsTyping(false);
+          resetTimeoutRef.current = setTimeout(() => {
+            i = 0;
+            setText("");
+            startTyping();
+          }, 3000);
+        }
+      }, typingSpeed || 50);
+    };
+    startTyping();
+    return () => {
+      clearInterval(intervalRef.current);
+      clearTimeout(resetTimeoutRef.current);
+    };
+  }, [quote, typingSpeed, effectType]);
+
+  // Cursor berkedip
+  useEffect(() => {
+    const blink = setInterval(() => setShowCursor((prev) => !prev), 500);
+    return () => clearInterval(blink);
+  }, []);
 
   return (
     <div className="bg-slate-800/70 backdrop-blur-md border border-gray-700/50 
-                    rounded-lg shadow-lg p-6 md:p-8 flex flex-col">
-      
-      {/* Icon Kutipan */}
+                    rounded-lg shadow-lg p-6 md:p-8 flex flex-col overflow-hidden relative">
       <FaQuoteLeft className="text-cyan-400 text-3xl mb-4" />
-      
-      {/* Isi Testimoni */}
+
       <p
-        className={`text-gray-300 text-lg italic leading-relaxed grow ${
-          typingSpeed ? 'font-mono text-[15px]' : ''
-        }`}
+        className={`text-gray-300 text-lg italic leading-relaxed grow transition-all 
+                    duration-150 ease-out wrap-break-word font-mono text-[15px]`}
+        style={{ whiteSpace: "pre-wrap" }}
       >
-        "{typedText}"
-        {typingSpeed && (
+        "{text}"
+        {(effectType === "bot" || effectType === "alien") && (
           <span
-            className="cursor-blink"
             style={{
               color: blinkColor || "#7f5af0",
-              visibility: isTyping ? "visible" : "hidden",
+              opacity: showCursor ? 1 : 0.2,
+              transition: "opacity 0.25s ease",
             }}
           >
             |
@@ -69,17 +125,15 @@ const TestimonialCard = ({ testimonial }) => {
         )}
       </p>
 
-      {/* Screenshot (optional) */}
       {projectImageUrl && (
         <img
           src={projectImageUrl}
-          alt={`Screenshot for ${name}`}
-          className="rounded-lg mt-6 w-full object-cover"
+          alt={name}
+          className="rounded-lg mt-6 w-full object-cover border border-gray-700"
           loading="lazy"
         />
       )}
 
-      {/* Profil */}
       <div className="flex items-center mt-6 pt-6 border-t border-gray-700/50">
         <img
           src={imageUrl}
