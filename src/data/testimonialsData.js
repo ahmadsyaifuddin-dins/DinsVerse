@@ -79,8 +79,8 @@ export const testimonials = [
     title: "Koloni Teknologi Antar Dimensi",
     quote: "Komunikasi lintas galaksi kami sempat terganggu hingga sistem buatan Dins memperbaiki protokol transmisi data kami. Strukturnya efisien, responsif, dan berlogika manusiawi. Luar biasa.",
     imageUrl: "https://cdn-icons-png.flaticon.com/512/947/947661.png",
-    effectType: "alien",
     blinkColor: "#00e5ff",
+    effectType: "alien",
     resetDelay: 10000,
     // projectImageUrl: "https://placehold.co/400?text=Screenshot+Proyek+2"
   },
