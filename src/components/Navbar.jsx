@@ -107,6 +107,13 @@ const Navbar = () => {
                 Best Projects
               </NavLink>
               <NavLink 
+                to="/estimasi-harga" 
+                className={mobileNavLinkClass}
+                onClick={handleLinkClick}
+              >
+                Estimasi Harga
+              </NavLink>
+              <NavLink 
                 to="/testimonials" 
                 className={mobileNavLinkClass}
                 onClick={handleLinkClick}
