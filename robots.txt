@@ -1,0 +1,6 @@
+# Izinkan semua crawler (Google, Bing)
+User-agent: *
+Allow: /
+
+# Tunjukkan lokasi sitemap
+Sitemap: https://dins-verse.vercel.app/sitemap.xml

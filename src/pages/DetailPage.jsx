@@ -5,25 +5,22 @@ import { useParams, Link } from 'react-router-dom';
 import { getProjectById } from '../services/api'; 
 import ProjectDetail from '../components/ProjectDetail';
 import DetailSkeleton from '../components/DetailSkeleton';
+import { Helmet } from 'react-helmet-async';
+
 const DetailPage = () => {
-  const { id } = useParams(); // Ambil 'id' dari URL
-  
-  // Buat state lokal HANYA untuk halaman ini
+  const { id } = useParams(); 
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Gunakan useEffect untuk fetch data saat halaman dimuat
   useEffect(() => {
     const fetchProject = async () => {
       try {
         setLoading(true);
         setError(null);
         
-        // Panggil API untuk mengambil HANYA 1 proyek
         const response = await getProjectById(id); 
         
-        // Cek jika backend mengembalikan 'null' (jika ID tidak ada)
         if (!response.data) {
           throw new Error("Project not found in database");
         }
@@ -38,17 +35,23 @@ const DetailPage = () => {
     };
 
     fetchProject();
-  }, [id]); // Bergantung pada 'id'
+  }, [id]);
 
+  // --- Loading State ---
   if (loading) {
-    // Tampilkan skeleton saat loading
     return <DetailSkeleton />;
   }
 
+  // --- Error State ---
   if (error || !project) {
-    // Tampilkan error jika fetch gagal ATAU project tidak ditemukan
     return (
       <div className="text-center">
+        {/* (Opsional) Helmet untuk halaman 404 */}
+        <Helmet>
+          <title>Project Not Found - DinsVerse</title>
+          <meta name="description" content="Proyek yang Anda cari tidak dapat ditemukan." />
+        </Helmet>
+        
         <h2 className="text-2xl text-red-500">Project Not Found</h2>
         <Link to="/" className="text-cyan-400 hover:text-cyan-300 mt-4 inline-block">
           &larr; Back to Home
@@ -57,8 +60,32 @@ const DetailPage = () => {
     );
   }
 
-  // Jika sukses, kirim data ke komponen ProjectDetail
-  return <ProjectDetail project={project} />;
+  const seoDescription = project.description.substring(0, 155) + 'Joki Aplikasi, Bikin Aplikasi, Beli Aplikasi, Joki Web, Joki Project Kuliah, WebGIS, GIS, SIG, DSS, SPK';
+
+  return (
+    <> 
+      
+      <Helmet>
+        <title>{project.title} - DinsVerse Showcase</title>
+        <meta name="description" content={seoDescription} />
+        
+        {/* Open Graph (Untuk Facebook, LinkedIn, Discord) */}
+        <meta property="og:title" content={project.title} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:image" content={project.thumbnail} />
+        <meta property="og:url" content={`https://dins-verse.vercel.app/project/${project._id}`} />
+        <meta property="og:type" content="article" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={project.title} />
+        <meta name="twitter:description" content={seoDescription} />
+        <meta name="twitter:image" content={project.thumbnail} />
+      </Helmet>
+
+      <ProjectDetail project={project} />
+
+    </>
+  );
 };
 
 export default DetailPage;

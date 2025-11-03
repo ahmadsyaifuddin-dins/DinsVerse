@@ -26,7 +26,7 @@ const getTypeIcon = (type) => {
   return <FiBox className="text-gray-400" />;
 };
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, sourcePage = "/" }) => { 
   const technologies = project.technologies || [];
 
   return (
@@ -34,14 +34,14 @@ const ProjectCard = ({ project }) => {
       variants={cardVariants}
       initial="hidden"
       animate="visible"
-      //  Hapus whileHover dan whileTap untuk performa
     >
       <Link 
         to={`/project/${project._id}`} 
-        //  Gunakan transform daripada scale, hapus shadow hover
+        // 3. Tambahkan 'state' prop ini
+        state={{ from: sourcePage }} 
         className="block bg-slate-800/80 rounded-lg overflow-hidden shadow-lg 
-                   transition-transform duration-200 ease-out h-full 
-                   hover:translate-y-[-2px] active:translate-y-0"
+                   transition-all duration-300 h-full
+                   hover:shadow-cyan-500/20"
       >
         {/* Thumbnail */}
         <img 

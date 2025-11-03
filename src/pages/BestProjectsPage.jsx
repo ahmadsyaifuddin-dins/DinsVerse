@@ -76,7 +76,7 @@ const BestProjectsPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.length > 0 ? (
           projects.map(project => (
-            <ProjectCard key={project._id} project={project} />
+            <ProjectCard key={project._id} project={project} sourcePage="/best-projects"/>
           ))
         ) : (
           <p className="col-span-3 text-gray-400 text-center text-lg">

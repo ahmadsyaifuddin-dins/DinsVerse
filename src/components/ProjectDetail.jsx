@@ -1,7 +1,7 @@
 // src/components/ProjectDetail.jsx
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FiGithub, FiExternalLink, FiArrowLeft, FiCalendar, FiCheckCircle, FiActivity } from 'react-icons/fi';
 import { FaBullseye } from 'react-icons/fa'; // Icon untuk progress
 import FormattedDescription from './FormattedDescription';
@@ -17,6 +17,9 @@ const formatDate = (dateString) => {
 };
 
 const ProjectDetail = ({ project }) => {
+  const location = useLocation();
+
+  const backLink = location.state?.from || "/";
   const technologies = project.technologies || [];
   const progress = project.progress || 0;
 
@@ -34,7 +37,7 @@ const ProjectDetail = ({ project }) => {
     <div className="max-w-4xl mx-auto">
       {/* Tombol Back */}
       <Link 
-        to="/" 
+        to={backLink}
         className="inline-flex items-center gap-2 text-cyan-400 text hover:text-cyan-300 mb-6 group"
       >
         <FiArrowLeft className="transition-transform group-hover:-translate-x-1" />
