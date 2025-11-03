@@ -49,6 +49,9 @@ const Navbar = () => {
             <NavLink to="/best-projects" className={navLinkClass}>
               Best Projects
             </NavLink>
+            <NavLink to="/estimasi-harga" className={navLinkClass}>
+              Estimasi Harga
+            </NavLink>
             <NavLink to="/testimonials" className={navLinkClass}>
               Testimonials
             </NavLink>

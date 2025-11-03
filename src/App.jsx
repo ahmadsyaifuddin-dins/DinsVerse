@@ -12,6 +12,7 @@ import DetailPage from './pages/DetailPage';
 import BestProjectsPage from './pages/BestProjectsPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import AboutPage from './pages/AboutPage';
+import EstimasiHargaPage from './pages/EstimasiHargaPage';
 
 // Konfigurasi animasi transisi (tetap sama)
 const pageTransition = {
@@ -60,6 +61,15 @@ function App() {
             <Route 
               path="/about" 
               element={<motion.div {...pageTransition}><AboutPage /></motion.div>} 
+            />
+
+            <Route 
+              path="/estimasi-harga" 
+              element={
+                <motion.div {...pageTransition}>
+                  <EstimasiHargaPage />
+                </motion.div>
+              } 
             />
 
           </Routes>
