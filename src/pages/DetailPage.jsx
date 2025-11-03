@@ -40,7 +40,6 @@ const DetailPage = () => {
   if (loading) {
     return (
       <>
-        <title>DinsVerse</title>
         <DetailSkeleton />
       </>
     );
