@@ -60,7 +60,6 @@ const DetailPage = () => {
 
   return (
     <> 
-      
         <title>{project.title} - DinsVerse Showcase</title>
         <meta name="description" content={seoDescription} />
         
