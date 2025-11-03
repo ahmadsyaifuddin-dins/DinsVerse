@@ -5,7 +5,6 @@ import { useParams, Link } from 'react-router-dom';
 import { getProjectById } from '../services/api'; 
 import ProjectDetail from '../components/ProjectDetail';
 import DetailSkeleton from '../components/DetailSkeleton';
-import { Helmet } from 'react-helmet-async';
 
 const DetailPage = () => {
   const { id } = useParams(); 
@@ -45,12 +44,9 @@ const DetailPage = () => {
   // --- Error State ---
   if (error || !project) {
     return (
-      <div className="text-center">
-        {/* (Opsional) Helmet untuk halaman 404 */}
-        <Helmet>
-          <title>Project Not Found - DinsVerse</title>
-          <meta name="description" content="Proyek yang Anda cari tidak dapat ditemukan." />
-        </Helmet>
+      <div className="text-center">        
+        <title>Project Not Found - DinsVerse</title>
+        <meta name="description" content="Proyek yang Anda cari tidak dapat ditemukan." />
         
         <h2 className="text-2xl text-red-500">Project Not Found</h2>
         <Link to="/" className="text-cyan-400 hover:text-cyan-300 mt-4 inline-block">
@@ -65,7 +61,6 @@ const DetailPage = () => {
   return (
     <> 
       
-      <Helmet>
         <title>{project.title} - DinsVerse Showcase</title>
         <meta name="description" content={seoDescription} />
         
@@ -80,7 +75,6 @@ const DetailPage = () => {
         <meta name="twitter:title" content={project.title} />
         <meta name="twitter:description" content={seoDescription} />
         <meta name="twitter:image" content={project.thumbnail} />
-      </Helmet>
 
       <ProjectDetail project={project} />
 

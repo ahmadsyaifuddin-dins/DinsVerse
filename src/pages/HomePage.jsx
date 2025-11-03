@@ -6,7 +6,6 @@ import ProjectCard from '../components/ProjectCard';
 import ProjectCardSkeleton from '../components/ProjectCardSkeleton';
 import ProjectFilters from '../components/ProjectFilters';
 import CallToAction from '../components/CallToAction';
-import { Helmet } from 'react-helmet-async'; 
 
 const HomePage = () => {
   const { 
@@ -66,14 +65,11 @@ const HomePage = () => {
 
   return (
     <div>
-
-      <Helmet>
         <title>DinsVerse Showcase - Full-Stack Developer</title>
         <meta 
           name="description" 
           content="Portofolio proyek Ahmad Syaifuddin (Dins). Jelajahi berbagai proyek web dan mobile, mulai dari React, Laravel, hingga Flutter." 
         />
-      </Helmet>
       
       <CallToAction />
       
