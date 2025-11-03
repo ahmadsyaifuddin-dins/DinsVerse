@@ -32,13 +32,46 @@ const PriceEstimator = () => {
   };
 
   const userPhoneNumber = "6285849910396";
-  const whatsappText = "Hallo kak, saya sudah hitung estimasi harga dan mau konsultasi gratis.";
+
+  // 1. Dapatkan nama dari Tipe Proyek yang dipilih
+  const project = projectTypes.find(p => p.id === selectedType);
+  const projectTypeName = project ? project.name : '(Belum Dipilih)';
+
+  // 2. Buat daftar nama Fitur yang dipilih
+  let featuresMessage = "Fitur Tambahan: (Tidak ada)";
+  if (selectedFeatures.length > 0) {
+    const featureNames = selectedFeatures.map(id => {
+        const feature = features.find(f => f.id === id);
+        return `\n- ${feature.name}`; // '\n' = baris baru
+    }).join('');
+    
+    featuresMessage = `Fitur Tambahan:${featureNames}`;
+  }
+
+  // 3. Dapatkan rentang harga yang sudah diformat
+  const priceText = `Estimasi Harga: ${formatRupiah(priceRange.min)} - ${formatRupiah(priceRange.max)}`;
+
+  // 4. Gabungkan semua menjadi satu pesan
+  const whatsappText = `Hallo kak, saya mau konsultasi gratis.
+Saya sudah hitung estimasi di DinsVerse:
+
+Tipe Proyek: ${projectTypeName}
+${featuresMessage}
+
+${priceText}
+`;
+
+  // 5. Buat link-nya
   const encodedText = encodeURIComponent(whatsappText);
   const whatsappLink = `https://wa.me/${userPhoneNumber}?text=${encodedText}`;
 
+  // -----------------------------------------------------------
+  // ▲▲▲ AKHIR DARI BLOK LOGIKA BARU ▲▲▲
+  // -----------------------------------------------------------
+
+  // Sisa file (bagian return/JSX) tetap SAMA PERSIS
   return (
     <div className="max-w-6xl mx-auto">
-      {/* Grid utama: Opsi di kiri, Hasil di kanan (desktop) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
         
         {/* Kolom Opsi (Kiri) */}
@@ -94,7 +127,6 @@ const PriceEstimator = () => {
 
         {/* Kolom Hasil (Kanan) */}
         <div className="md:col-span-1">
-          {/* 'top-28' = 4rem (tinggi navbar) + 2rem (jarak) */}
           <div className="sticky top-28 bg-slate-800/70 backdrop-blur-md border border-cyan-500/50 rounded-lg shadow-lg shadow-cyan-500/10">
             <div className="p-6">
               <h3 className="text-xl font-semibold text-white mb-4">Estimasi Total Harga</h3>
@@ -111,7 +143,7 @@ const PriceEstimator = () => {
               </p>
               
               <a 
-                href={whatsappLink}
+                href={whatsappLink} // <-- 'href' ini sekarang sudah dinamis
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-3 px-6 py-3 
