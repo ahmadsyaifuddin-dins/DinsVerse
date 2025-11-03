@@ -4,6 +4,7 @@ import App from './App.jsx';
 import './index.css';
 import './styles/shiny-text.css';
 import './styles/cursor.css';
+import './styles/input-form.css';
 import { BrowserRouter } from 'react-router-dom';
 import { ProjectProvider } from './context/ProjectContext.jsx';
 
