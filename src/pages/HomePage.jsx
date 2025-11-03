@@ -68,7 +68,7 @@ const HomePage = () => {
       <CallToAction />
       
       <div className="mt-16">
-        <h1 className="text-4xl font-bold mb-8 text-cyan-400">All Projects</h1>
+        <h1 className="text-4xl font-bold mb-8 text-cyan-400">All My Projects</h1>
         <ProjectFilters />
         
         {renderProjectGrid()}
