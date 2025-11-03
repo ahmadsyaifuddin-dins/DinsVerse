@@ -38,13 +38,18 @@ const DetailPage = () => {
 
   // --- Loading State ---
   if (loading) {
-    return <DetailSkeleton />;
+    return (
+      <>
+        <title>Loading project... - DinsVerse</title>
+        <DetailSkeleton />
+      </>
+    );
   }
 
   // --- Error State ---
   if (error || !project) {
     return (
-      <div className="text-center">        
+      <div className="text-center">      
         <title>Project Not Found - DinsVerse</title>
         <meta name="description" content="Proyek yang Anda cari tidak dapat ditemukan." />
         
@@ -56,27 +61,33 @@ const DetailPage = () => {
     );
   }
 
-  const seoDescription = project.description.substring(0, 155) + 'Joki Aplikasi, Bikin Aplikasi, Beli Aplikasi, Joki Web, Joki Project Kuliah, WebGIS, GIS, SIG, DSS, SPK';
+  // Pisahkan deskripsi (untuk dibaca manusia) dari keywords (untuk bot)
+  const seoDescription = project.description.substring(0, 155) + '...';
+  const seoKeywords = `Joki Aplikasi, Bikin Aplikasi, Beli Aplikasi, Joki Web, Joki Project Kuliah, WebGIS, GIS, SIG, DSS, SPK, ${project.title}, DinsVerse`;
 
   return (
     <> 
-        <title>{project.title} - DinsVerse Showcase</title>
-        <meta name="description" content={seoDescription} />
-        
-        {/* Open Graph (Untuk Facebook, LinkedIn, Discord) */}
-        <meta property="og:title" content={project.title} />
-        <meta property="og:description" content={seoDescription} />
-        <meta property="og:image" content={project.thumbnail} />
-        <meta property="og:url" content={`https://dins-verse.vercel.app/project/${project._title}`} />
-        <meta property="og:type" content="article" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={project.title} />
-        <meta name="twitter:description" content={seoDescription} />
-        <meta name="twitter:image" content={project.thumbnail} />
+      <title>{project.title} - DinsVerse Showcase</title>
+      
+      {/* Deskripsi (untuk Google & Manusia) */}
+      <meta name="description" content={seoDescription} />
+      {/* Keywords (untuk Bot) */}
+      <meta name="keywords" content={seoKeywords} />
+      
+      {/* Open Graph (Facebook, Discord) */}
+      <meta property="og:title" content={project.title} />
+      <meta property="og:description" content={seoDescription} />
+      <meta property="og:image" content={project.thumbnail} />
+      <meta property="og:url" content={`https://dins-verse.vercel.app/project/${project._id}`} />
+      <meta property="og:type" content="article" />
+      
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={project.title} />
+      <meta name="twitter:description" content={seoDescription} />
+      <meta name="twitter:image" content={project.thumbnail} />
 
       <ProjectDetail project={project} />
-
     </>
   );
 };
