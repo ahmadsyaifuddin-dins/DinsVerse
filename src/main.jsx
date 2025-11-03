@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
 import './styles/shiny-text.css';
+import './styles/stars.css';
 import './styles/cursor.css';
 import './styles/input-form.css';
 import { BrowserRouter } from 'react-router-dom';
