@@ -16,8 +16,8 @@ export const projectTypes = [
         id: 'project_tugas', 
         name: 'Project Tugas Kuliah', 
         description: 'Aplikasi spesifik untuk tugas matakuliah (non-PKL/Skripsi), misal: web CRUD, algoritma, dll.',
-        baseMin: 400000,  // (Harga bisa Anda sesuaikan)
-        baseMax: 1500000 // (Harga bisa Anda sesuaikan)
+        baseMin: 400000, 
+        baseMax: 1500000
       },
     { 
       id: 'pkl', 
