@@ -68,7 +68,7 @@ const DetailPage = () => {
         <meta property="og:title" content={project.title} />
         <meta property="og:description" content={seoDescription} />
         <meta property="og:image" content={project.thumbnail} />
-        <meta property="og:url" content={`https://dins-verse.vercel.app/project/${project._id}`} />
+        <meta property="og:url" content={`https://dins-verse.vercel.app/project/${project._title}`} />
         <meta property="og:type" content="article" />
         
         <meta name="twitter:card" content="summary_large_image" />
