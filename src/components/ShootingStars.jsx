@@ -90,7 +90,11 @@ export const ShootingStars = ({
   }, [star]);
 
   return (
-    <svg ref={svgRef} className={cn("w-full h-full absolute inset-0", className)}>
+    <svg 
+      ref={svgRef} 
+      className={cn("w-full h-full absolute inset-0 pointer-events-none", className)}
+      style={{ minHeight: '100vh', zIndex: -5 }}
+    >
       {star && (
         <rect
           key={star.id}

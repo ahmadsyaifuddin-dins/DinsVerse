@@ -2,6 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* Pastikan full height untuk canvas bintang */
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   /* Gradien "Deep Space" */
   font-family: 'Exo 2', sans-serif;

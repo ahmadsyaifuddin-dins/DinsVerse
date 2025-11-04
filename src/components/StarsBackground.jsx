@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 
 export const StarsBackground = ({
-  starDensity = 0.00015,
+  starDensity = 0.0003,
   allStarsTwinkle = true,
   twinkleProbability = 0.7,
   minTwinkleSpeed = 0.5,
@@ -22,7 +22,7 @@ export const StarsBackground = ({
         return {
           x: Math.random() * width,
           y: Math.random() * height,
-          radius: Math.random() * 0.05 + 0.5,
+          radius: Math.random() * 0.8 + 0.5,
           opacity: Math.random() * 0.5 + 0.5,
           twinkleSpeed: shouldTwinkle
             ? minTwinkleSpeed +
@@ -112,7 +112,8 @@ export const StarsBackground = ({
   return (
     <canvas
       ref={canvasRef}
-      className={cn("h-full w-full absolute inset-0", className)}
+      className={cn("h-full w-full absolute inset-0 pointer-events-none", className)}
+      style={{ minHeight: '100vh', zIndex: -10 }}
     />
   );
 };
