@@ -102,7 +102,7 @@ const TestimonialCard = ({ testimonial }) => {
   }, []);
 
   return (
-    <div className="bg-slate-800/70 backdrop-blur-md border border-gray-700/50 
+    <div className="backdrop-blur-xs back border border-slate-900/50 
                     rounded-lg shadow-lg p-6 md:p-8 flex flex-col overflow-hidden relative">
       <FaQuoteLeft className="text-cyan-400 text-3xl mb-4" />
 

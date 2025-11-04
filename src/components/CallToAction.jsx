@@ -14,8 +14,7 @@ const CallToAction = () => {
 
   return (
     <div className="relative z-10 max-w-5xl mx-auto p-8 md:p-12
-                    bg-slate-800/70 backdrop-blur-md 
-                    border border-gray-700/50 
+                    backdrop-blur-none border border-slate-900/50 
                     rounded-lg shadow-lg text-center">
       
       <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">

@@ -3,7 +3,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiGithub, FiExternalLink, FiArrowLeft, FiCalendar, FiCheckCircle, FiActivity } from 'react-icons/fi';
-import { FaBullseye } from 'react-icons/fa'; // Icon untuk progress
 import FormattedDescription from './FormattedDescription';
 
 // Fungsi helper untuk format tanggal
@@ -34,7 +33,7 @@ const ProjectDetail = ({ project }) => {
   const difficultyClass = difficultyColors[project.difficulty] || difficultyColors.default;
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto backdrop-blur-none border border-slate-900/50 p-3">
       {/* Tombol Back */}
       <Link 
         to={backLink}

@@ -39,7 +39,8 @@ const ProjectCard = ({ project, sourcePage = "/" }) => {
         to={`/project/${project._id}`} 
         // 3. Tambahkan 'state' prop ini
         state={{ from: sourcePage }} 
-        className="block bg-slate-800/80 rounded-lg overflow-hidden shadow-lg 
+        className="block backdrop-blur-sm border border-slate-900/50 
+                   rounded-lg overflow-hidden shadow-lg 
                    transition-all duration-300 h-full
                    hover:shadow-cyan-500/20"
       >

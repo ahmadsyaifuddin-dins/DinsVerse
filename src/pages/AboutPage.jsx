@@ -34,7 +34,7 @@ const AboutPage = () => {
         
         {/* Bagian Bio (Foto & Teks) */}
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16
-                        bg-slate-800/70 backdrop-blur-md border border-gray-700/50 
+                        backdrop-blur-none border border-slate-900/50 
                         rounded-lg p-8 md:p-12 shadow-lg">
           
           <div className="shrink-0">
