@@ -44,7 +44,7 @@ function App() {
       <StarsBackground 
         starDensity={0.0003}
         allStarsTwinkle={true}
-        twinkleProbability={0.8}
+        twinkleProbability={0.9}
         minTwinkleSpeed={0.3}
         maxTwinkleSpeed={1.5}
       />
