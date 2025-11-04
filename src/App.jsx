@@ -38,7 +38,7 @@ function App() {
         starColor="#ffffff"
         trailColor="#60a5fa"
         starWidth={50}
-        starHeight={2}
+        starHeight={3}
       />
       <StarsBackground
         starDensity={0.0002}
