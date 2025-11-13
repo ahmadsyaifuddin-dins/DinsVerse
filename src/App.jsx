@@ -1,6 +1,6 @@
 // src/App.jsx
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
@@ -25,7 +25,22 @@ const pageTransition = {
 };
 
 function App() {
+  const [animPaused, setAnimPaused] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    let timeout;
+    const onScroll = () => {
+      setAnimPaused(true);
+      clearTimeout(timeout);
+      timeout = setTimeout(() => setAnimPaused(false), 200); // pause selama scroll aktif
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(timeout);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen text-gray-200 flex flex-col relative">
@@ -47,6 +62,7 @@ function App() {
         twinkleProbability={0.9}
         minTwinkleSpeed={0.3}
         maxTwinkleSpeed={1.5}
+        paused={animPaused}
       />
       
       {/* Navbar */}
