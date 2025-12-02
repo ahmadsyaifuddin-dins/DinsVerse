@@ -1,3 +1,10 @@
+<div align="center">
+
+<p> <b>Visitors Count 👁️</b> </p>
+<img src="https://profile-counter.deno.dev/DinsVerse/count.svg" alt="Profile Counter Repo :: Visitor's Count" />
+
+</div>
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
