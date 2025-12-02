@@ -11,6 +11,7 @@ const bestProjectIds = [
     "6905f85c1809a44748fea86a", // WebGIS Pangan Batola
     "69057a3d62110075b61ddd2e", // DinsWealth
     "69057b16cfe0d8cfe3f857fe", // BlackFile
+    "692e94c646f91c584bf2e2a5", // SAIAS
     "67c85ee3f11b6c967c3d1ddd", // JokiDins
 ];
 
